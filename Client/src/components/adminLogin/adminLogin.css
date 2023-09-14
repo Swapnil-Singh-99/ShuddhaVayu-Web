@@ -75,4 +75,9 @@
     border-radius: 12px;
     cursor: pointer;
 }
+
+.button-link {
+    text-decoration: none;
+}
+
 /* ADMIN LOGIN END */
