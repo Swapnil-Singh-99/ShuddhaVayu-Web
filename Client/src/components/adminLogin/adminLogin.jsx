@@ -1,25 +1,21 @@
 import React from 'react';
-import Logo from "../../assets/logo.svg"
 import "./adminLogin.css"
+import accountCircle from "../../assets/account_circle.svg"
+import shieldLock from "../../assets/shield_lock.svg"
 
-function AdminLoginPage() {
+function AdminLogin() {
     return (
-        // WORK IN PROGRESS
-        <div className="homeLogin">
-            <div className="contents">
-                <img src={Logo} alt="" />
-                <p>See Real-time air and water quality index</p>
-            </div>
-            <div className="adminLoginButtons">
+        <div class="adminLogin">
+            <div class="adminLoginButtons">
                 <p>Admin Login</p>
-                <div className="loginDiv">
-                    <div className="username"></div>
-                    <div className="password"></div>
-                    <button className="loginBtn"></button>
+                <div class="loginDiv">
+                    <div class="username inputField"><img src={accountCircle} alt=""/><input type="text" placeholder="Username"/></div>
+                    <div class="password inputField"><img src={shieldLock} alt=""/><input type="password" placeholder="Password"/></div>
+                    <button class="loginBtn">Login</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default AdminLoginPage;
+export default AdminLogin;
