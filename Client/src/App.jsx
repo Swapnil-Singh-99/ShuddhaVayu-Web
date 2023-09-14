@@ -1,15 +1,14 @@
+import { Outlet } from "react-router-dom";
 
-
-function App() {
+const App = () => {
 
   return (
-    <>
-    <div>
-    <p className="text-4xl font-bold text-green-900">Shuddhavayu</p>
+    <div className="App">
+      <Outlet />
     </div>
-   
-    </>
-  )
-}
+  );
+};
 
-export default App
+
+
+export default App;

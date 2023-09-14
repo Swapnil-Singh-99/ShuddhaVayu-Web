@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root{
+    overflow-x: hidden;
+}
+
+body, html{
+    margin: 0;
+    min-width: 100vw;
+}
+
+#root, .App{
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
