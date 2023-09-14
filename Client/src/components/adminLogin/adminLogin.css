@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* LOGIN PAGE START */
+.homeLogin {
+    width: 50%;
+    display: grid;
+    margin: auto;
+    justify-self: center;
+    margin-top: 50px;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    /* position: absolute; */
+    /* text-align: center; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* width: 100%; */
+}
+
+.contents {
+    text-align: center;
+}
+
+.contents img {
+    margin-bottom: 30px;
+}
+
+.contents p {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0px 20px;
+}
+
+.loginButtons {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-self: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.loginButtons p {
+    margin-bottom: 20px;
+}
+
+.loginButton {
+    width: fit-content;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: 1px solid #242424;
+    margin-bottom: 10px;
+    width: 180px;
+}
+
+.blueGradient {
+    background: linear-gradient(274.68deg, #7AA0B1 1.22%, #B4E3F7 100%);
+}
+
+.redGradient {
+    background: linear-gradient(274.26deg, #B17A7A 0.29%, #FFA8A8 99.74%);
+}
+
+/* LOGIN PAGE END */
