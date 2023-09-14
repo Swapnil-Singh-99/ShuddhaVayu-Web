@@ -9,12 +9,6 @@
     margin-top: 50px;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
-    /* position: absolute; */
-    /* text-align: center; */
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    /* width: 100%; */
 }
 
 .contents {
@@ -64,6 +58,10 @@
 
 .redGradient {
     background: linear-gradient(274.26deg, #B17A7A 0.29%, #FFA8A8 99.74%);
+}
+
+.button-link {
+    text-decoration: none;
 }
 
 /* LOGIN PAGE END */
