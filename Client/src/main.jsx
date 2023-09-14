@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import HomePage from "./components/homePage/homePage"
 import AdminLoginPage from "./components/adminLoginPage/adminLoginPage"
+import Dashboard from './components/dashboard/dashboard'
 import "./index.css"
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '/adminlogin',
         element: <AdminLoginPage />
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard />
       }
     ]
   }
