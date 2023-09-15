@@ -28,10 +28,16 @@ thead tr th {
 }
 
 tr td {
-    padding: 10px 0px;
+    padding: 10px 20px;
     border-bottom: 1px solid #B9B9B9;
     font-size: 18px;
     font-family: 'Inter', sans-serif;
+    height: auto;
+    max-width: 5vw;
+}
+
+.description {
+    min-width: 20vw;
 }
 
 tr td img {

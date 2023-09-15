@@ -44,7 +44,7 @@ function UserReports() {
                         <td>{item.id}</td>
                         <td>{item.dateTime}</td>
                         <td>{item.name}</td>
-                        <td>{item.description}</td>
+                        <td className='description'>{item.description}</td>
                         <td>{item.location}</td>
                         <td><img src={item.attachment} alt="" /></td>
                     </tr>
