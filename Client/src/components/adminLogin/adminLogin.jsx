@@ -12,7 +12,7 @@ function AdminLogin() {
                 <div className="loginDiv">
                     <div className="username inputField"><img src={accountCircle} alt=""/><input type="text" placeholder="Username"/></div>
                     <div className="password inputField"><img src={shieldLock} alt=""/><input type="password" placeholder="Password"/></div>
-                    <button className="loginBtn"><Link to="/dashboard" classNameName="button-link">Login</Link></button>
+                    <button className="loginBtn"><Link to="/dashboard" className="button-link">Login</Link></button>
                 </div>
             </div>
         </div>
