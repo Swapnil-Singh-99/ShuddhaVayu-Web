@@ -1,13 +1,13 @@
 import DashboardNavbar from "../dashboardNavbar/dashboardNavbar"
 import DashboardNavigation from "../dashboardNavigation/dashboardNavigation"
-import UserReports from "../userReports/userReports"
+import DisplayReports from "../Users/UsersList"
 
 const Dashboard = () => {
     return (
         <>
             <DashboardNavbar />
             <DashboardNavigation />
-            <UserReports />
+            <DisplayReports/>
         </>
     )
 }
