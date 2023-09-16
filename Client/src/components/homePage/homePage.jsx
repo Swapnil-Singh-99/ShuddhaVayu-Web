@@ -4,8 +4,7 @@ import LoginPage from "../loginPage/loginPage"
 const HomePage = () => {
     return (
         <>
-            <Navbar />
-            <LoginPage/>
+           
         </>
     )
 }
