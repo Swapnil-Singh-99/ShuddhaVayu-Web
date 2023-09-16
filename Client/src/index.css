@@ -12,3 +12,13 @@ body, html{
     height: 100%;
     width: 100%;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .card{
+        @apply rounded-xl shadow-lg;
+    }
+}
+
