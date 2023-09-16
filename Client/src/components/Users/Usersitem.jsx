@@ -18,6 +18,8 @@ const UserItem = (props) => {
     const value = UserCtx.value;
     SetPath(value);
   },[]);
+
+  //updates
   
 
 
@@ -62,7 +64,7 @@ const UserItem = (props) => {
          <Link to="/Report" >
          <button className="hover:text-green font-semibold" onClick={clicked}>
           Details
-          
+
           </button>
           </Link>
           
