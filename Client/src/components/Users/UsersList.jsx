@@ -1,56 +1,108 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
-import UserItem from "./Usersitem";
+// import Navbar from "../navbar/navbar"
+// import LoginPage from "../loginPage/loginPage"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../../firebase';
+import React, { useState, useEffect } from 'react'
+import bodyParser from "body-parser";
 
 
+// const HomePage = () => {
+//   const [data, setData] = useState()
+//   const readData = async () => {
+//     await getDocs(collection(db, "Users"))
+//       .then((querySnapshot) => {
+//         // console.log(querySnapshot);
+//         const newData = querySnapshot.docs
+//           .map((doc) => ({ ...doc.data(), id: doc.id }));
+//         // setTodos(newData);
+//         return newData
+//       })
+//       .then((newData) => {
+//         console.log(newData);
+//         // setData(newData)
+//       })
 
-const DisplayReports = () => {
-  const [LoadedReports, SetLoadedReports] = useState();
-  
+//   }
+// useEffect(() => {
+//   getDocs(collection(db, "Users"))
+//     .then((querySnapshot) => {
+//       // console.log(querySnapshot);
+//       const newData = querySnapshot.docs
+//         .map((doc) => ({ ...doc.data(), id: doc.id }));
+//       // setTodos(newData);
+//       return newData
+//     })
+//     .then((newData) => {
+//       console.log(newData);
+//       setData(newData)
+//     })
+// }, [])
+// // readData();
+const HomePage = () => {
+  const readData = async () => {
+
+    await getDocs(collection(db, "Users"))
+      .then((querySnapshot) => {
+        // console.log(querySnapshot);
+        const newData = querySnapshot.docs
+          .map((doc) => ({ ...doc.data(), id: doc.id }));
+        // setTodos(newData);
+        return newData
+      })
+      .then((newData) => {
+        console.log(newData);
+      })
+
+  }
+  readData();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    main();
-  }, []);
+    // Function to fetch data from Firestore
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "DisplayReport"));
+        const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
 
-   const fetchData = useCallback(async ()=> {
-    try {
-      const response = await fetch(
-        "https://shuddhavayu-default-rtdb.firebaseio.com/DisplayReport.json"
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  },[]) 
+        // Sort newData based on the 'value' property in ascending order
+        newData.sort((a, b) => a.value - b.value);
 
-  useEffect(() => {
+        setData(newData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call the fetchData function when the component mounts
     fetchData();
-  }, [fetchData]);
-
-  const main = async () => {
-    const dataArray = await fetchData();
-    SetLoadedReports(await dataArray);
-  };
+  }, []);
 
 
   return (
     <>
-      <div className="bg-cover"  >
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-900 text-white">
-            Reports
-          </h2>
 
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10  sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 transition ease-in duration-300">
-            {LoadedReports &&
-              LoadedReports.map((data) => (
-             <UserItem id={data.id}  name={data.name} value={data.value} date_time={data.date_time} location={data.location}/>
-              ))}
-              
-          </div>
-        </div>
-      </div>
+    
+
+<tbody style={{border: '1px solid black'}}> 
+                {data.map((item) => (
+                    <tr key={item.id}>
+                        <td>{item.value}</td>
+                        <td>{item.date_time}</td>
+                        <td>{item.name}</td>
+                        {/* <td className='description'>{item.description}</td> */}
+                        <td>{item.location}</td>
+                        {/* <td><img src={item.attachment} alt="" /></td> */}
+                    </tr>
+                ))}
+            </tbody>
     </>
-  );
-};
-export default DisplayReports;
+  )
+}
+
+export default HomePage
+
+
+
