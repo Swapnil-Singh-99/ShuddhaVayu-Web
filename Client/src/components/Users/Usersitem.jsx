@@ -22,20 +22,6 @@ const UserItem = (props) => {
   //updates
   
 
-
-
-
-
-
-
- 
-
-
-
- 
-
-
-
   return (
     <div key={props.id} className="group relative bg-silver rounded-3xl border-2 border-black">
         <div className="flex justify-between py-4  px-2">
