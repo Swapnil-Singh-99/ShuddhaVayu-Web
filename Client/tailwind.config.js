@@ -17,7 +17,18 @@ export default {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
       'green': '#A2C579',
-      'black': '#000000'
+      'black': '#000000',
+      'Main':'#279EFF',
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
+      'indigo':'#6366F1'
 
     },
     extend: {},
