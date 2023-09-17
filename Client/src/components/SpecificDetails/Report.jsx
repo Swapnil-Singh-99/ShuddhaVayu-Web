@@ -1,10 +1,14 @@
 import React , {useContext,useState , useEffect ,useCallback} from "react"
 import UserContext from "../../ContextApi/User"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../../firebase';
 
 const Report = ()=>{
 
   const UserCtx = useContext(UserContext);
    const id =    UserCtx.value;
+
+   console.log(id);
     
    const [Report, SetReport] = useState({});
     
@@ -38,15 +42,42 @@ const Report = ()=>{
   // }
 
    
-  const FetchData = async ()=>{
-    const response = await fetch('https://shuddhavayu-default-rtdb.firebaseio.com/UserReports/'+id+'.json')
-      SetReport(await response.json()) 
+  // const FetchData = async ()=>{
+  //   const response = await fetch('https://shuddhavayu-default-rtdb.firebaseio.com/UserReports/'+id+'.json')
+  //     SetReport(await response.json()) 
 
-  }
+  // }
   
-  useEffect(()=>{
-    FetchData();
-  })
+  // useEffect(()=>{
+  //   FetchData();
+  // })
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const querySnapshot = await getDocs(collection(db, "UserReports"));
+              const newData = querySnapshot.docs.map((doc) => ({
+                  ...doc.data(),
+                  id: doc.id,
+              }));
+              newData.sort((a, b) => a.value - b.value);
+              newData.map((report) => {
+                if(report.id==id){
+                SetReport(report);
+                }
+              })
+              
+          } catch (error) {
+              console.error("Error fetching data:", error);
+          }
+      };
+      fetchData();
+  }, [])
+
+
+
   
 
 
