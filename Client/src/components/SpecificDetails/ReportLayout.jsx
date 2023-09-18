@@ -81,7 +81,7 @@ const ReportLayout = ({ data }) => {
                   Coordinates:
                 </h1>
               </div>
-              <MapComponent lat={data.Report.latitude} long={data.Report.longitude} zoom={15} />
+              <MapComponent lat={data.Report.latitude} long={data.Report.longitude} zoom={30} />
               <div>
 
               </div>

@@ -16,7 +16,7 @@ const MapComponent = ({ lat, long, zoom }) => {
     return <p>Invalid coordinates</p>;
   }
   return (
-    <MapContainer center={[lat, long]} zoom={zoom} style={{ height: "400px", width: "100%" }}>
+    <MapContainer center={[lat, long]} zoom={zoom} style={{ height: "600px", width: "100%" }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
