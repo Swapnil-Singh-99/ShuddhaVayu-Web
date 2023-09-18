@@ -24,6 +24,7 @@ useEffect(() => {
         id: doc.id,
       }));
       newData.sort((a, b) => a.value - b.value);
+      console.log(newData)
       newData.map((report) => {
         if (report.id == id) {
           SetReport(report);
@@ -36,18 +37,20 @@ useEffect(() => {
   FetchData();
 },[]);
 
+console.log()
+
 return (
   <>
+
    <ReportLayout 
-   name={Report && Report.name}
+    name={Report && Report.user.displayName}
     text={Report && Report.text}
-     location={Report && Report.location}
+     address={Report && Report.address}
      date_time={Report && Report.date_time}
      image={Report && Report.image}
      ReportId={Report && Report.value}
      lat={Report && Report.latitude}
      long={Report && Report.longitude}
-
      />
   </>
 );
