@@ -7,53 +7,44 @@ import ReportLayout from "./ReportLayout";
 const Report = () => {
   const UserCtx = useContext(UserContext);
   const id = UserCtx.value;
+  const [Report, SetReport] = useState([]);
 
-  console.log(id);
-
-  const [Report, SetReport] = useState({});
-
-  
-;
-
-useEffect(() => {
-  const FetchData = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "UserReports"));
-      const newData = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      newData.sort((a, b) => a.value - b.value);
-      console.log(newData)
-      newData.map((report) => {
-        if (report.id == id) {
-          SetReport(report);
-        }
-      });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-  FetchData();
-},[]);
-
-console.log()
-
-return (
-  <>
-
-   <ReportLayout 
-    name={Report && Report.user.displayName}
-    text={Report && Report.text}
-     address={Report && Report.address}
-     date_time={Report && Report.date_time}
-     image={Report && Report.image}
-     ReportId={Report && Report.value}
-     lat={Report && Report.latitude}
-     long={Report && Report.longitude}
-     />
-  </>
-);
+  useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "UserReports"));
+        const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        newData.sort((a, b) => a.value - b.value);
+        newData.map((report) => {
+          if (report.id == id) {
+            console.log(report);
+            let ReportData_ = {
+              "displayName": report.user.displayName,
+              "imageUrl": report.user.imageUrl,
+              "text": report.text,
+              "latitude": report.latitude,
+              "longitude": report.longitude,
+              "image": report.image,
+              "address": report.address
+            }
+            console.log(ReportData_);
+            SetReport(ReportData_);
+          }
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    FetchData();
+  }, []);
+  return (
+    <>
+      <ReportLayout data={{Report}} />
+    </>
+  );
 }
 
 export default Report;
