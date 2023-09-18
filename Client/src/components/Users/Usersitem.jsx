@@ -10,8 +10,8 @@ const UserItem = (props) => {
   const clicked = useCallback(async () => {
     console.log("clicked");
     UserCtx.Selected({
-      value: await props.value,
-      name: await props.name,
+      value:  props.value,
+      name:  props.name,
     });
 
     const value = UserCtx.value;
@@ -33,8 +33,7 @@ const UserItem = (props) => {
           <div class="relative w-8 h-8 mr-3 rounded-full md:block">
             <img
               class="object-cover w-full h-full rounded-full"
-              src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-              alt=""
+              src={props.Pimage}
               loading="lazy"
             />
             <div
@@ -48,7 +47,7 @@ const UserItem = (props) => {
         </div>
       </td>
 
-      <td class="px-4 py-3 text-ms font-semibold border text-black">{props.location}</td>
+      <td class="px-4 py-3 text-ms font-semibold border text-black">{props.address}</td>
 
   
 

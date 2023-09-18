@@ -2,30 +2,33 @@
 const ReportLayout = (props)=>{
 
   
-
+  console.log(props.image)
 
 
 
     return(
-        <div class="flex p-4">
-        <div class="w-1/2 p-4">
-          <h2 class="text-2xl font-semibold mb-2">{props.name}</h2>
-          <p class="text-gray-600">{props.text}</p>
-          <p class="text-gray-800 mt-4">{props.location}</p>
-          <p class="text-gray-800">{props.date_time}</p>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-            Add to Cart
-          </button>
-        </div>
-  
-        <div class="w-1/2">
+<div className="bg-gray-100">
+    <div className="flex container mx-auto mt-8">        
+        <div className="flex-grow">
+            <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="w-1/2">
           <img
             src={props.image}
             alt="Product Image"
-            class="object-cover w-full h-full rounded-lg"
+            className="object-cover w-full h-full rounded-lg"
           />
         </div>
-      </div>
+        <div className="flex-grow">
+        <h2 className="text-xl font-semibold mb-2">{props.name}</h2>
+                <p className="text-gray-600 mb-2">{props.address}</p>
+                <p className="text-gray-600 mb-2">Date & Time: 2023-09-22 08:40:00</p>
+                <p className="text-gray-700">{props.text}</p>
+        </div>
+              
+            </div>
+    </div>
+</div>
+</div>
 
     )
 }
@@ -33,3 +36,5 @@ const ReportLayout = (props)=>{
 export default ReportLayout
 
 
+
+  

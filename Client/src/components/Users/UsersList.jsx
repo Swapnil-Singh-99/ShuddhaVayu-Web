@@ -9,31 +9,35 @@ import { db } from '../../firebase';
 const DisplayReports = () => {
   const [LoadedReports, SetLoadedReports] = useState();
   
-
-
-
-  const [data, setData] = useState([]);
-
   useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const querySnapshot = await getDocs(collection(db, "UserReports"));
-              const newData = querySnapshot.docs.map((doc) => ({
-                  ...doc.data(),
-                  id: doc.id,
-              }));
-              newData.sort((a, b) => a.value - b.value);
-              console.log(newData);
-              newData.map((report) => {
-                  console.log(report.id);
-              })
-              SetLoadedReports(newData);
-          } catch (error) {
-              console.error("Error fetching data:", error);
-          }
-      };
-      fetchData();
-  }, [])
+    main();
+  },[]);
+  
+  async function fetchData() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "UserReports"));
+      const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+      }));
+      newData.sort((a, b) => a.value - b.value);
+      console.log(newData);
+      newData.map(item=>{
+        console.log( item.user.displayName)
+      })
+       return newData;
+  } catch (error) {
+      console.error("Error fetching data:", error);
+  }
+  }
+  
+  const main = async () => {
+    const dataArray = await fetchData();
+    SetLoadedReports(await dataArray);
+  };
+
+
+
 
 
   return (
@@ -57,7 +61,7 @@ const DisplayReports = () => {
          
         {LoadedReports &&
               LoadedReports.map((data) => (
-             <UserItem id={data.value}  name={data.name} value={data.id} date_time={data.date_time} location={data.location} />
+             <UserItem id={data.value}  name={data.user.displayName} Pimage={data.user.imageUrl} value={data.id} date_time="8-11-23" address={data.address} />
               ))
               }
       
