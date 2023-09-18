@@ -8,7 +8,7 @@ const UserItem = (props) => {
   const [Path, SetPath] = useState("");
 
   const clicked = useCallback(async () => {
-    console.log("clicked");
+    // console.log("clicked");
     UserCtx.Selected({
       value:  props.value,
       name:  props.name,

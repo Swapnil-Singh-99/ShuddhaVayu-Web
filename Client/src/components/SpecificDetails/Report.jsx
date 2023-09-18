@@ -20,7 +20,7 @@ const Report = () => {
         newData.sort((a, b) => a.value - b.value);
         newData.map((report) => {
           if (report.id == id) {
-            console.log(report);
+            // console.log(report);
             let ReportData_ = {
               "displayName": report.user.displayName,
               "imageUrl": report.user.imageUrl,
@@ -30,7 +30,7 @@ const Report = () => {
               "image": report.image,
               "address": report.address
             }
-            console.log(ReportData_);
+            // console.log(ReportData_);
             SetReport(ReportData_);
           }
         });
