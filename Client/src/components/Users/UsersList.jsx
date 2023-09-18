@@ -10,30 +10,7 @@ const DisplayReports = () => {
   const [LoadedReports, SetLoadedReports] = useState();
   
 
-  // useEffect(() => {
-  //   main();
-  // }, []);
 
-  //  const fetchData = useCallback(async ()=> {
-  //   try {
-  //     const response = await fetch(
-  //       "https://shuddhavayu-default-rtdb.firebaseio.com/DisplayReport.json"
-  //     );
-  //     const data = await response.json();
-  //     return data;
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // },[]) 
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [fetchData]);
-
-  // const main = async () => {
-  //   const dataArray = await fetchData();
-  //   SetLoadedReports(await dataArray);
-  // };
 
   const [data, setData] = useState([]);
 
@@ -61,22 +38,37 @@ const DisplayReports = () => {
 
   return (
     <>
-      <div className="bg-cover"  >
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-900 text-white">
-            Reports
-          </h2>
+     
+<section class="container mx-auto p-6 font-mono">
+  <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <div class="w-full overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="text-md font-semibold tracking-wide text-left text-black-900 bg-gray-100 uppercase border-b border-gray-600">
+            <th class="px-4 py-3">ID</th>
+            <th class="px-4 py-3">Name</th>
+            <th class="px-4 py-3">location</th>
+            <th class="px-4 py-3">Date and Time</th>
+            <th class="px-4 py-3">Details</th>
 
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10  sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 transition ease-in duration-300">
-            {LoadedReports &&
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+         
+        {LoadedReports &&
               LoadedReports.map((data) => (
-             <UserItem id={data.value}  name={data.name} value={data.id} date_time={data.date_time} location={data.location}/>
-              ))}
-              
-          </div>
-        </div>
-      </div>
+             <UserItem id={data.value}  name={data.name} value={data.id} date_time={data.date_time} location={data.location} />
+              ))
+              }
+      
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
     </>
   );
 };
 export default DisplayReports;
+
+
