@@ -1,65 +1,67 @@
-import React, { useState, useContext, useEffect,useCallback } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../ContextApi/User";
 
 const UserItem = (props) => {
-
   const UserCtx = useContext(UserContext);
 
   const [Path, SetPath] = useState("");
 
-  const clicked=  useCallback(async()=>{
-    console.log('clicked')
+  const clicked = useCallback(async () => {
+    console.log("clicked");
     UserCtx.Selected({
       value: await props.value,
-      name: await props.name
-    })
-   
+      name: await props.name,
+    });
+
     const value = UserCtx.value;
     SetPath(value);
-  },[]);
+  }, []);
 
   //updates
-  
 
   return (
-    <div key={props.id} className="group relative bg-silver rounded-3xl border-2 border-black">
-        <div className="flex justify-between py-4  px-2">
-        <div>
-       Report ID: {props.id}
-
+    <tr class="text-gray-700">
+          <td class="px-4 py-3 text-xs border">
+        <span class="px-2 py-1 font-bold leading-tight text-green-700  rounded-sm text-xl" >
+          {" "}
+          {props.id}{" "}
+        </span>
+      </td>
+      <td class="px-4 py-3 border">
+        <div class="flex items-center text-sm">
+          <div class="relative w-8 h-8 mr-3 rounded-full md:block">
+            <img
+              class="object-cover w-full h-full rounded-full"
+              src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+              alt=""
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 rounded-full shadow-inner"
+              aria-hidden="true"
+            ></div>
+          </div>
+          <div>
+            <p class="font-semibold text-black">{props.name}</p>
+          </div>
         </div>
-      <div>
-      {props.date_time}
+      </td>
 
-      </div>
+      <td class="px-4 py-3 text-ms font-semibold border text-black">{props.location}</td>
 
-        </div>
-       
-      <div className="mt-4 flex justify-between py-4  px-2 ">
-        <div>
-          <h3 className="text-xl text-gray-700 font-bold px-2">{props.name}</h3>
-        </div>
-        <div>
-          <h3 className="text-xl text-gray-700 font-bold px-2">{props.location}</h3>
-        </div>
-       
-      </div>
-      <div class="flex justify-center items-center ">
-  <div class=" hover:bg-blue-500 py-2 ">
-         <Link to="/Report" >
-         <button className="hover:text-green font-semibold" onClick={clicked}>
-          Details
+  
 
+      <td class="px-4 py-3 text-sm border">{props.date_time}</td>
+
+      <td class="px-4 py-3 text-sm border">
+        <Link to="/Report">
+          <button className= "text-black hover:text-orange" onClick={clicked}>
+           Details
           </button>
-          </Link>
-          
-        
-  </div>
-</div>
-
-     
-    </div>
+        </Link>
+      </td>
+    </tr>
   );
 };
 export default UserItem;

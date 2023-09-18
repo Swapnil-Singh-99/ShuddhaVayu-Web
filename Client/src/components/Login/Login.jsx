@@ -46,7 +46,7 @@ return(
     <div className="min-h-screen flex items-center justify-center bg-white py-12 px-4 sm:px-6 lg:px-8 ">
     <div className="max-w-md w-full space-y-8 ">
       <div>
-        <h1 className="mt-6 text-center text-4xl font-extrabold text-blue">
+        <h1 className="mt-6 text-center text-4xl font-extrabold text-nav">
         Admin Log In
         </h1>
       
@@ -96,7 +96,7 @@ return(
               id="remember-me"
               name="remember-me"
               type="checkbox"
-              className="h-4 w-4 text-blue focus:ring-blue border-gray rounded"
+              className="h-4 w-4 text-nav focus:ring-nav border-gray rounded"
             />
             <label
               htmlFor="remember-me"
@@ -109,7 +109,7 @@ return(
           <div className="text-sm">
             <a
               href="#"
-              className="font-medium text-blue hover:text-blue"
+              className="font-medium text-nav hover:text-nav"
             >
               Forgot your password?
             </a>
@@ -119,7 +119,7 @@ return(
         <div>
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue hover:bg-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue"
+            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-nav hover:bg-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue"
           >
             Log in
           </button>
