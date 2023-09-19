@@ -28,7 +28,9 @@ const Report = () => {
               "latitude": report.latitude,
               "longitude": report.longitude,
               "image": report.image,
-              "address": report.address
+              "address": report.address,
+              "date": report.date,
+              "time": report.time
             }
             // console.log(ReportData_);
             SetReport(ReportData_);

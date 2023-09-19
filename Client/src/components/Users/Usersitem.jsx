@@ -22,12 +22,12 @@ const UserItem = (props) => {
 
   return (
     <tr class="text-gray-700">
-          <td class="px-4 py-3 text-xs border">
+          {/* <td class="px-4 py-3 text-xs border">
         <span class="px-2 py-1 font-bold leading-tight text-green-700  rounded-sm text-xl" >
           {" "}
           {props.id}{" "}
         </span>
-      </td>
+      </td> */}
       <td class="px-4 py-3 border">
         <div class="flex items-center text-sm">
           <div class="relative w-8 h-8 mr-3 rounded-full md:block">
@@ -51,7 +51,7 @@ const UserItem = (props) => {
 
   
 
-      <td class="px-4 py-3 text-sm border">{props.date_time}</td>
+      <td class="px-4 py-3 text-sm border">{props.date} {props.time}</td>
 
       <td class="px-4 py-3 text-sm border">
         <Link to="/Report">

@@ -58,7 +58,7 @@ const ReportLayout = ({ data }) => {
                   </div>
                   <div>
                     <p className="text-gray-900 mb-2 font-medium ">
-                      2023-09-22 08:40:00
+                      {data.Report.date} {data.Report.time}
                     </p>
                   </div>
                 </div>
