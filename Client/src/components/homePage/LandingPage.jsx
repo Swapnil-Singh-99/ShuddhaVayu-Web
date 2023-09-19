@@ -10,8 +10,8 @@ const LandingPage = () => {
 
         <h1 className="text-4xl font-bold mb-4">Welcome,  to Our Website</h1>
         <p className="text-lg mb-8">Explore and discover amazing content.</p>
-        <div className='flex justify-between'>
-        <div>
+        <div className='flex justify-center'>
+        {/* <div>
         <a
           href="#"
           className="bg-white text-Main hover:bg-Main hover:text-white px-6 py-3 rounded-full text-lg font-semibold transition duration-300 ease-in-out"
@@ -19,7 +19,7 @@ const LandingPage = () => {
           User Login
         </a>
 
-        </div>
+        </div> */}
         <div>
         <a
           href="/adminlogin"
